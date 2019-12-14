@@ -1,0 +1,11 @@
+﻿@model List<Authors>
+<h2>This is My Partial View.</h2>
+
+<table class="table table-striped">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.FirstName</td>
+        </tr>
+    }
+</table>

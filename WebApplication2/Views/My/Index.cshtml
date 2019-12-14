@@ -1,0 +1,30 @@
+﻿@using WebApplication2.Entities 
+@model List<Authors>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>My Index page</h2>
+
+@Html.ActionLink("Create new author", "Create")
+@{Html.RenderPartial("_MyPartialView", Model); }
+<table class="table table-striped">
+    <caption>It's main view</caption>
+    <thead>
+        <tr>
+            <th>Номер записи</th>
+            <th>Имя автора</th>
+            <th>Фамилия автора</th>
+        </tr> 
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+        </tr>
+    }
+</table>
+

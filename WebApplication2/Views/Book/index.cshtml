@@ -1,0 +1,21 @@
+﻿@model List<Books>
+@{
+    ViewBag.Title = "index";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Create new book", "Create")
+<table class="table table-striped">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Title</td>
+            <td>@item.Price</td>
+            <td>@item.Pages</td>
+            <td>@Html.ActionLink("Редактировать книгу", "Edit", new { @id = item.Id })</td>
+            <td>@Html.ActionLink("Удалить книгу", "Delete" , new { @id = item.Id })</td>
+        </tr>
+    }
+</table>
+
