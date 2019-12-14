@@ -1,9 +1,18 @@
-﻿@using WebApplication2.Entities 
+﻿@using WebApplication2.Entities
 @model List<Authors>
 
 @{
     ViewBag.Title = "Index";
 }
+
+@{
+//List<Authors> list = ViewBag.AuthorList;
+//List<Authors> listViewData = (List<Authors>)ViewData["AuthorList"];
+    @*@ViewData.AuthorList*@
+    @*@ViewData["AuthorList"]*@
+    @*TempData["AuthorList"]*@
+}
+
 
 <h2>My Index page</h2>
 
@@ -16,7 +25,7 @@
             <th>Номер записи</th>
             <th>Имя автора</th>
             <th>Фамилия автора</th>
-        </tr> 
+        </tr>
     </thead>
     @foreach (var item in Model)
     {

@@ -1,4 +1,5 @@
-﻿@model WebApplication2.Books
+﻿@using WebApplication2.Utils
+@model WebApplication2.Books
 
 @{
     ViewBag.Title = "Edit";
@@ -23,6 +24,10 @@
                 @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
             </div>
         </div>
+
+        @MyHelpers.MyTestHelper("blue")
+
+        @Html.MyTestHelper("green")
 
         <div class="form-group">
             @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
