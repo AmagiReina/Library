@@ -10,6 +10,7 @@ namespace WebApplication2
     {
         public int Id { get; set; }
 
+        [Display(Name = "Название книги")]
         public string Title { get; set; }
 
         public int Price { get; set; }

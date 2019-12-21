@@ -1,0 +1,21 @@
+﻿@using WebApplication2.Entities
+@model List<OrderBook>
+@{
+    ViewBag.Title = "index";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Create new order", "Create")
+
+<table class="table table-striped">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Users.UsersName</td>
+            <td>@item.Books.Title</td>
+            <td>@Html.ActionLink("Редактировать заказ", "Edit", new { @id = item.Id })</td>
+            <td>@Html.ActionLink("Удалить заказ", "Delete", new { @id = item.Id })</td>
+        </tr>
+    }
+</table>

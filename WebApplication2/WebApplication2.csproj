@@ -174,12 +174,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\GenreController.cs" />
+    <Compile Include="Controllers\OrderBookController.cs" />
     <Compile Include="Entities\Authors.cs" />
     <Compile Include="Entities\Books.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MyController.cs" />
     <Compile Include="Entities\C__MigrationHistory.cs" />
     <Compile Include="Entities\Genre1.cs" />
+    <Compile Include="Entities\OrderBook.cs" />
     <Compile Include="Entities\Users.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -212,6 +214,14 @@
     <Compile Include="Migrations\201912140411043_Alter-Books.cs" />
     <Compile Include="Migrations\201912140411043_Alter-Books.designer.cs">
       <DependentUpon>201912140411043_Alter-Books.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912210521010_AddOrderBook.cs" />
+    <Compile Include="Migrations\201912210521010_AddOrderBook.designer.cs">
+      <DependentUpon>201912210521010_AddOrderBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912210531060_AlterOrderBook.cs" />
+    <Compile Include="Migrations\201912210531060_AlterOrderBook.designer.cs">
+      <DependentUpon>201912210531060_AlterOrderBook.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -268,6 +278,9 @@
     <Content Include="Views\Genre\Index.cshtml" />
     <Content Include="Views\Genre\Create.cshtml" />
     <Content Include="Views\Genre\Edit.cshtml" />
+    <Content Include="Views\OrderBook\Index.cshtml" />
+    <Content Include="Views\OrderBook\Edit.cshtml" />
+    <Content Include="Views\OrderBook\Partial\_Top5Orders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -308,6 +321,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912140411043_Alter-Books.resx">
       <DependentUpon>201912140411043_Alter-Books.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912210521010_AddOrderBook.resx">
+      <DependentUpon>201912210521010_AddOrderBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912210531060_AlterOrderBook.resx">
+      <DependentUpon>201912210531060_AlterOrderBook.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
