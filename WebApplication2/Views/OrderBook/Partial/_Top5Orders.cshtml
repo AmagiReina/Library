@@ -2,13 +2,13 @@
 
 <h2>Top 5 Last Ordered Books</h2>
 
-<table class="table table-striped">
+<table class="table table-striped" id="displayPartial">
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.Title</td>
-            <td>@item.Price</td>
-            <td>@item.Pages</td>
+            <td id="partial-title">@item.Title</td>
+            <td id="partial-price">@item.Price</td>
+            <td id="partial-pages">@item.Pages</td>
         </tr>
     }
 </table>

@@ -1,0 +1,12 @@
+﻿@using WebApplication2.Entities
+@model List<OrderBook>
+
+<table class="table table-striped">
+    @foreach (var item in Model)
+    {
+        <tr id="@item.UserId" class="record">
+            <td>@item.Users.UsersName</td>
+            <td>@item.Books.Title</td>
+        </tr>
+    }
+</table>

@@ -6,12 +6,61 @@
 
 <h2>Index</h2>
 
-@Html.ActionLink("Create new order", "Create")
+@Html.ActionLink("Create new order", "Create", null, new { id = "link"})
 
-<table class="table table-striped">
+<script>
+    $(document).ready(function() {
+        let record = $('.record');
+
+        $(record).on('click', function () {
+            let id = $(this).attr('id');
+            console.log(id);
+
+            $.ajax({
+                type: "GET",
+                datatype: "json",
+                url: "/OrderBook/GetTop5/",
+                data: {
+                    userId: id
+                },
+                success: function (data) {
+                    $("#partialTable").html(" ");
+                    data.forEach(function (item) {
+                        let newRow = document.createElement("tr");
+
+                        let tdTitle = document.createElement("td");
+                        $(tdTitle).text(item.Title);
+                        $(newRow).append(tdTitle);
+
+                        let tdPrice = document.createElement("td");
+                        $(tdPrice).text(item.Price);
+                        $(newRow).append(tdPrice);
+
+                        let tdPages = document.createElement("td");
+                        $(tdPages).text(item.Pages);
+                        $(newRow).append(tdPages);
+
+                        $("#partialTable").append(newRow);
+                    });          
+                },
+                error: function () {
+                    alert("failed")
+                }
+
+            });
+        });
+
+        $('#link').on('click', function (event) {
+            event.preventDefault();
+            $('#exampleModalScrollable').modal("show");
+        });
+    });
+</script>
+
+<table id="OrderTable" class="table table-striped">
     @foreach (var item in Model)
     {
-        <tr>
+        <tr id="@item.UserId" class="record">
             <td>@item.Users.UsersName</td>
             <td>@item.Books.Title</td>
             <td>@Html.ActionLink("Редактировать заказ", "Edit", new { @id = item.Id })</td>
@@ -19,3 +68,29 @@
         </tr>
     }
 </table>
+
+<div id="AjaxOrderTable">
+    
+</div>
+
+<div class="modal fade" id="exampleModalScrollable" tabindex="-1" 
+     role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Create order</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                @Html.Partial("Partial/_CreatePartialView", new OrderBook());
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="displayPartial">
+    <table class="table table-striped" id="partialTable"></table>
+</div>
+
